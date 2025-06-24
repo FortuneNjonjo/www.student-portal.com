@@ -147,7 +147,8 @@ function loadMotivation() {
     "Believe in yourself!",
     "You can do hard things.",
     "One step at a time.",
-    "Push yourself, no one else will."
+    "Push yourself, no one else will.",
+    "The first step is always the hardest"
   ];
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
   document.getElementById("motivational-quote").textContent = quote;
