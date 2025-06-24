@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="login-page" class="screen active">
+    <div class="login-box">
+      <h2>Student Portal Login</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="loginUser()">Login</button>
+    </div>
+  </div>
+
+  <div id="portal-page" class="screen">
+    <header>
+      <h2 id="user-greeting"></h2>
+      <button onclick="logoutUser()">Logout</button>
+    </header>
+
+    <section id="dashboard">
+      <h3>Dashboard</h3>
+      <p>School Link: <a id="schoolLink" href="#" target="_blank">Visit School Site</a></p>
+      <div id="staff-section"></div>
+    </section>
+
+    <section id="motivational-quote"></section>
+
+    <section id="timetable">
+      <h3>Timetable</h3>
+      <div contenteditable="true" class="editable-box">Edit your timetable here...</div>
+    </section>
+
+    <section id="assignments">
+      <h3>Assignments</h3>
+      <ul id="assignment-list"></ul>
+    </section>
+
+    <section id="announcements">
+      <h3>Announcements</h3>
+      <ul id="announcement-list"></ul>
+    </section>
+
+    <section id="progress">
+      <h3>Progress Tracker</h3>
+      <div id="progress-bars"></div>
+    </section>
+
+    <section id="theme-settings">
+      <h3>Theme Customization</h3>
+      <button onclick="toggleDarkMode()">Toggle Dark/Light</button>
+      <input type="color" onchange="changeThemeColor(this.value)" />
+    </section>
+
+    <section id="study-resources">
+      <h3>Study Resources</h3>
+      <ul id="resources-list"></ul>
+    </section>
+
+    <section id="profile">
+      <h3>Profile</h3>
+      <input type="file" id="profile-pic" onchange="uploadProfilePic(event)" />
+      <img id="profile-preview" src="" alt="Profile Picture" />
+    </section>
+
+    <section id="file-manager">
+      <h3>File Upload</h3>
+      <input type="file" id="file-upload" multiple />
+      <button onclick="uploadFiles()">Upload</button>
+      <ul id="file-list"></ul>
+    </section>
+
+    <section id="tools">
+      <h3>Tools</h3>
+      <textarea id="notepad" placeholder="Take notes..."></textarea>
+      <button onclick="saveNotes()">Save Notes</button>
+      <p><strong>Calculator:</strong></p>
+      <input id="calc" oninput="calculate(this.value)" placeholder="2+2*5" />
+      <div id="calc-result"></div>
+    </section>
+
+    <section id="leaderboard">
+      <h3>Leaderboard</h3>
+      <ol id="leaderboard-list"></ol>
+    </section>
+
+    <section id="feedback">
+      <h3>Feedback Box</h3>
+      <textarea id="feedback-text" placeholder="Enter feedback..."></textarea>
+      <button onclick="submitFeedback()">Submit</button>
+    </section>
+
+    <section id="admin-panel" class="admin-only">
+      <h3>Admin Panel</h3>
+      <textarea id="bulk-students" placeholder="Enter student names (one per line)"></textarea>
+      <button onclick="bulkRegister()">Register Students</button>
+      <ul id="student-credentials"></ul>
+    </section><section id="timetable">
+  <h3>Timetable</h3>
+  <table id="timetable-table" contenteditable="true">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>08:00 - 09:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>09:00 - 10:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>10:00 - 11:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>11:00 - 12:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>12:00 - 13:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <label for="colorPicker">Select Border Color:</label>
+    <input type="color" id="colorPicker" onchange="changeTableBorderColor(this.value)" />
+  </div>
+</section>
+
+<script>
+function changeTableBorderColor(color) {
+  document.getElementById("timetable-table").style.borderColor = color;
+  let cells = document.querySelectorAll("#timetable-table td, #timetable-table th");
+  cells.forEach(cell => {
+    cell.style.borderColor = color;
+  });
+}
+</script>
+
+<style>
+#timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 2px solid #007bff;
+}
+#timetable-table th,
+#timetable-table td {
+  border: 2px solid #007bff;
+  padding: 10px;
+  text-align: center;
+}
+#timetable-table thead {
+  background-color: #f0f8ff;
+}
+</style>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* style.css - Student Portal */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f0f0;
+  color: #333;
+}
+
+.screen {
+  display: none;
+  padding: 20px;
+}
+
+.screen.active {
+  display: block;
+}
+
+.login-box {
+  background: white;
+  padding: 30px;
+  max-width: 400px;
+  margin: 100px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="color"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+section {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.editable-box {
+  min-height: 100px;
+  border: 1px dashed #999;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fafafa;
+  margin-top: 10px;
+}
+
+#profile-preview {
+  max-width: 100px;
+  margin-top: 10px;
+  border-radius: 50%;
+}
+
+.admin-only {
+  background: #fff4e6;
+  border-left: 6px solid #ffa726;
+}
+
+ol, ul {
+  padding-left: 20px;
+}
+
+textarea#notepad {
+  min-height: 100px;
+  background: #eef;
+}
+
+@media (max-width: 600px) {
+  .login-box, section {
+    margin: 20px;
+  }
+}
+<section id="timetable">
+  <h3>Timetable</h3>
+  <table id="timetable-table" contenteditable="true">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>08:00 - 09:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>09:00 - 10:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>10:00 - 11:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>11:00 - 12:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>12:00 - 13:00</td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <label for="colorPicker">Select Border Color:</label>
+    <input type="color" id="colorPicker" onchange="changeTableBorderColor(this.value)" />
+  </div>
+</section>
+
+<script>
+function changeTableBorderColor(color) {
+  document.getElementById("timetable-table").style.borderColor = color;
+  let cells = document.querySelectorAll("#timetable-table td, #timetable-table th");
+  cells.forEach(cell => {
+    cell.style.borderColor = color;
+  });
+}
+</script>
+
+<style>
+#timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 2px solid #007bff;
+}
+#timetable-table th,
+#timetable-table td {
+  border: 2px solid #007bff;
+  padding: 10px;
+  text-align: center;
+}
+#timetable-table thead {
+  background-color: #f0f8ff;
+}
+</style>
